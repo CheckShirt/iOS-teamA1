@@ -10,35 +10,7 @@ import UIKit
 import NetworkFetcher
 
 class SearchViewController: UIViewController {
-    
-    @IBOutlet weak var uiSearchBarOuterView: UIView!
-    @IBOutlet weak var uiSearchBar: UISearchBar!
-    @IBOutlet weak var uiTableView: UITableView!
-    @IBOutlet weak var navigationFilterItem: UIButton!
-    
-    private let cellIdentifier: String = "ArticleFeedTableViewCell"
-    private let articleImage: ArticleImage = ArticleImage()
-    private var loadingView: LoadingView?
-    private var defaultView: DefaultLabelView?
-    private var topOffset: CGFloat = UIApplication.shared.statusBarOrientation.isLandscape ? 44 : 64
-    private var tableViewContentOffsetY: CGFloat = 0
-    private var tableViewScrollCount: (down: Int, up: Int) = (0, 0)
-    private var searchBarTextField: UITextField?
-    private var searchBarIsPresented: Bool = true
-    private var transitionManager = PresentationManager()
-    private var articles: [Article]?
-    private var defaultLabel: UILabel = UILabel()
-    private var searchKeyword: String?
-    private var page: Int = 1
-    private var totalPage: Int = 0
-    private var isLoading: Bool = false
-    private var isMoreLoading: Bool = false
-    private var isPresentedCheck: Bool = true
-    private var heightAtIndexPath = [IndexPath: Float]()
-    private var currentTask = URLSessionDataTask()
-    private var isCategorySelected: Bool = false
-    private lazy var searchFilter = [String: String]()
-    
+            
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDelegate()
@@ -348,6 +320,34 @@ class SearchViewController: UIViewController {
         filterViewController.modalPresentationStyle = .custom
         present(filterViewController, animated: true)
     }
+    
+    @IBOutlet private weak var uiSearchBarOuterView: UIView!
+    @IBOutlet private weak var uiSearchBar: UISearchBar!
+    @IBOutlet private weak var uiTableView: UITableView!
+    @IBOutlet private weak var navigationFilterItem: UIButton!
+    
+    private let cellIdentifier: String = "ArticleFeedTableViewCell"
+    private let articleImage: ArticleImage = ArticleImage()
+    private var loadingView: LoadingView?
+    private var defaultView: DefaultLabelView?
+    private var topOffset: CGFloat = UIApplication.shared.statusBarOrientation.isLandscape ? 44 : 64
+    private var tableViewContentOffsetY: CGFloat = 0
+    private var tableViewScrollCount: (down: Int, up: Int) = (0, 0)
+    private var searchBarTextField: UITextField?
+    private var searchBarIsPresented: Bool = true
+    private var transitionManager = PresentationManager()
+    private var articles: [Article]?
+    private var defaultLabel: UILabel = UILabel()
+    private var searchKeyword: String?
+    private var page: Int = 1
+    private var totalPage: Int = 0
+    private var isLoading: Bool = false
+    private var isMoreLoading: Bool = false
+    private var isPresentedCheck: Bool = true
+    private var heightAtIndexPath = [IndexPath: Float]()
+    private var currentTask = URLSessionDataTask()
+    private var isCategorySelected: Bool = false
+    private lazy var searchFilter = [String: String]()
 }
 
 // MARK: TableView

@@ -131,10 +131,7 @@ extension TrendPageView: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(
-        _ tableView: UITableView,
-        cellForRowAt indexPath: IndexPath
-    ) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch TrendSection(section: indexPath.section) {
         case .header:
             guard let cell = tableView.dequeueReusableCell(

@@ -9,20 +9,7 @@
 import UIKit
 
 class SearchFilterViewController: UIViewController {
-
-    @IBOutlet weak var languageStackView: UIStackView!
-    @IBOutlet weak var categoryStackView: UIStackView!
-    @IBOutlet weak var languageLabel: UILabel!
-    @IBOutlet weak var categoryLabel: UILabel!
-    @IBOutlet weak var selectPickViewer: PickerView!
-    @IBOutlet weak var pickerView: UIStackView!
-    @IBOutlet weak var saveButton: UIButton!
-    @IBOutlet weak var keywordSortStackView: UIStackView!
-    @IBOutlet weak var keywordSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var sortSegmentedControl: UISegmentedControl!
-    @IBOutlet var collectionOfSegmentedControl: [UISegmentedControl]?
     
-    private var selectViewIsPresented: Bool = false
     var filterValue: [String: String]?
     weak var settingDelegate: FilterSettingDelegate?
     
@@ -128,6 +115,20 @@ class SearchFilterViewController: UIViewController {
         )
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBOutlet private weak var languageStackView: UIStackView!
+    @IBOutlet private weak var categoryStackView: UIStackView!
+    @IBOutlet private weak var languageLabel: UILabel!
+    @IBOutlet private weak var categoryLabel: UILabel!
+    @IBOutlet private weak var selectPickViewer: PickerView!
+    @IBOutlet private weak var pickerView: UIStackView!
+    @IBOutlet private weak var saveButton: UIButton!
+    @IBOutlet private weak var keywordSortStackView: UIStackView!
+    @IBOutlet private weak var keywordSegmentedControl: UISegmentedControl!
+    @IBOutlet private weak var sortSegmentedControl: UISegmentedControl!
+    @IBOutlet private var collectionOfSegmentedControl: [UISegmentedControl]?
+    
+    private var selectViewIsPresented: Bool = false
 }
 
 extension SearchFilterViewController: UIPickerViewDelegate, UIPickerViewDataSource {
